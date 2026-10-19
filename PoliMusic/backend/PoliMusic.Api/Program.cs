@@ -1,0 +1,18 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.RateLimiting;
+using PoliMusic.Domain;
+using PoliMusic.Application;
+using PoliMusic.Infrastructure;
+var builder=WebApplication.CreateBuilder(args);
+var origin=builder.Configuration["FrontendOrigin"]??"https://localhost:5173";
+builder.Services.AddDbContext<MusicDb>(o=>o.UseSqlServer(builder.Configuration.GetConnectionString("Music")??throw new Exception("ConnectionStrings__Music is required")));
+builder.Services.AddScoped<ICatalogService,CatalogService>();builder.Services.AddScoped<IPasswordHasher<User>,PasswordHasher<User>>();
+builder.Services.AddControllers();builder.Services.AddEndpointsApiExplorer();builder.Services.AddSwaggerGen();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(o=>{o.Cookie.HttpOnly=true;o.Cookie.SecurePolicy=CookieSecurePolicy.Always;o.Cookie.SameSite=SameSiteMode.None;o.ExpireTimeSpan=TimeSpan.FromHours(8);o.Events.OnRedirectToLogin=c=>{c.Response.StatusCode=401;return Task.CompletedTask;};o.Events.OnRedirectToAccessDenied=c=>{c.Response.StatusCode=403;return Task.CompletedTask;};});
+builder.Services.AddAuthorization();builder.Services.AddCors(o=>o.AddDefaultPolicy(p=>p.WithOrigins(origin).AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
+builder.Services.AddRateLimiter(o=>{o.GlobalLimiter=PartitionedRateLimiter.Create<Microsoft.AspNetCore.Http.HttpContext,string>(c=>RateLimitPartition.GetFixedWindowLimiter(c.Connection.RemoteIpAddress?.ToString()??"unknown",_=>new(){PermitLimit=120,Window=TimeSpan.FromMinutes(1),QueueLimit=0}));o.RejectionStatusCode=429;});
+var app=builder.Build();app.UseHttpsRedirection();app.UseCors();app.UseRateLimiter();
+app.Use(async(c,next)=>{if(c.Request.Method is "POST" or "PUT" or "DELETE" or "PATCH"){if(c.Request.Headers.Origin!=origin){c.Response.StatusCode=403;await c.Response.WriteAsJsonAsync(new{message="Untrusted origin"});return;}}try{await next();}catch(DbUpdateException){c.Response.StatusCode=409;await c.Response.WriteAsJsonAsync(new{message="El registro está duplicado o tiene relaciones que impiden la operación."});}});
+app.UseAuthentication();app.UseAuthorization();if(app.Environment.IsDevelopment()){app.UseSwagger();app.UseSwaggerUI();}app.MapControllers();app.Run();
