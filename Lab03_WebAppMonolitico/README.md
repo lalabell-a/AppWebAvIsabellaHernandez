@@ -18,7 +18,7 @@ Este laboratorio es independiente de `PoliMusic`. Coloca la carpeta `Lab03_WebAp
 1. Habilita **.NET Framework 3.5 (incluye 2.0 y 3.0)**. Instala la carga de trabajo **ASP.NET y desarrollo web** de Visual Studio y SQL Server/LocalDB.
 2. Abre `SlnAppPoliMusic.slnx` (o `.sln`). Mantén el destino **.NET Framework 2.0**; no conviertas a ASP.NET Core.
 3. En SQL Server Management Studio, conéctate a tu instancia y ejecuta `Database/01_CrearBaseLaboratorio.sql`. Si la instancia admite autenticación integrada de Windows, también puedes ejecutar `ConfigurarBase.ps1` desde Windows PowerShell con el parámetro `-Servidor`. Para la instancia de Docker con autenticación SQL, usa SSMS y configura la conexión con tus propios datos como se indica más abajo.
-4. Revisa `WebAppPoliMusicV2/Web.config`: `Data Source` debe coincidir con tu instancia y `Initial Catalog` debe ser `BDD_PoliMusic_Lab03`. El valor predeterminado usa `(localdb)\MSSQLLocalDB` y autenticación integrada.
+4. Revisa `WebAppPoliMusicV2/Web.config`: `Data Source` debe coincidir con tu instancia y `Initial Catalog` debe ser `BDD_PoliMusic_Lab03`. En el ZIP, el valor predeterminado usa `(localdb)\MSSQLLocalDB` y autenticación integrada. En la copia de GitHub, crea `ConnectionStrings.local.config` a partir del archivo `.example`, como se indica más abajo.
 5. Establece `WebAppPoliMusicV2` como proyecto de inicio y `Default.aspx` como página de inicio. En IIS Express utiliza **CLR v2.0**, sin HTTPS, como pide la guía.
 6. Compila y ejecuta. También puedes ejecutar `Compilar.ps1 -Precompilar` y luego `Ejecutar.ps1`.
 7. Regístrate desde `SignUp.aspx` y entra con esa cuenta. No hay contraseñas ni usuarios de prueba incorporados.
@@ -48,9 +48,9 @@ La guía usa SHA1 para las contraseñas. Se conserva esa compatibilidad académi
 
 ## Repositorio
 
-Repositorio identificado: https://github.com/lalabell-a/AppWebAvIsabellaHernandez
+Publicado en la rama `main`: [Lab03_WebAppMonolitico](https://github.com/lalabell-a/AppWebAvIsabellaHernandez/tree/main/Lab03_WebAppMonolitico).
 
-Con la carpeta ya ubicada junto a `PoliMusic`, revisar en Git únicamente `Lab03_WebAppMonolitico/`, confirmar que `.gitignore` excluye `.vs`, `bin`, `obj`, `packages` y `.user`, y crear el commit del laboratorio. El push y la captura de GitHub deben realizarse después de revisar los cambios y confirmar su publicación.
+Commit de publicación del código: [`122135e`](https://github.com/lalabell-a/AppWebAvIsabellaHernandez/commit/122135e2fb7dda0892c1516f512f11f2ea282a7e). Se verificaron 59 archivos añadidos exclusivamente dentro del laboratorio, sin cambios en `PoliMusic`. La evidencia real está en `Entregables/GitHub_Publicacion.png` y en el informe PDF. La documentación se actualiza después de esa publicación inicial.
 
 ## Ejecución verificada en esta PC
 

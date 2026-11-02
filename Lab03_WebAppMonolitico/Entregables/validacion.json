@@ -121,6 +121,11 @@
   ],
   "github": {
     "repositorio": "https://github.com/lalabell-a/AppWebAvIsabellaHernandez",
-    "estado": "PENDIENTE DE PUBLICACION; no se incluye una captura remota inexistente"
+    "carpeta": "https://github.com/lalabell-a/AppWebAvIsabellaHernandez/tree/main/Lab03_WebAppMonolitico",
+    "estado": "PUBLICADO Y VERIFICADO",
+    "commit_codigo": "122135e2fb7dda0892c1516f512f11f2ea282a7e",
+    "evidencia": "GitHub_Publicacion.png",
+    "archivos_publicados": 59,
+    "cambios_fuera_del_laboratorio": 0
   }
 }
