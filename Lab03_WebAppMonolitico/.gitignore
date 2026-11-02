@@ -1,0 +1,17 @@
+.vs/
+**/bin/
+**/obj/
+packages/
+*.user
+*.suo
+*.log
+.runtime/
+.compile.rsp
+WebAppPoliMusicV2/ConnectionStrings.local.config
+Verificacion/*.exe
+Verificacion/*.dll
+*.mdf
+*.ldf
+WebAppPoliMusicV2/UserImages/*
+!WebAppPoliMusicV2/UserImages/default.jpg
+!WebAppPoliMusicV2/UserImages/root.png

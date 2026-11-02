@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copiar como ConnectionStrings.local.config y configurar las credenciales de TU instancia. No subir el archivo real a Git. -->
+<connectionStrings>
+  <add name="BDD_PoliMusicConnectionString" connectionString="Data Source=127.0.0.1,14333;Initial Catalog=BDD_PoliMusic_Lab03;User ID=TU_USUARIO;Password=TU_PASSWORD;Encrypt=True;TrustServerCertificate=True;Connect Timeout=5" providerName="System.Data.SqlClient" />
+</connectionStrings>

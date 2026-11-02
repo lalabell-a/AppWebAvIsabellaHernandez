@@ -1,0 +1,126 @@
+{
+  "proyecto": "Lab03_WebAppMonolitico",
+  "framework": "v2.0",
+  "compilacion": "APROBADA: MSBuild Release y C# ISO-2 con referencias Framework 2.0",
+  "precompilacion": "APROBADA con aspnet_compiler CLR 4 en copia temporal",
+  "ejecucion_real": {
+    "servidor_web": "IIS Express",
+    "pool": "Clr2IntegratedAppPool",
+    "clr": "v2.0",
+    "url": "http://localhost:8083/"
+  },
+  "base": {
+    "servidor": "127.0.0.1,14333",
+    "nombre": "BDD_PoliMusic_Lab03",
+    "canciones": 1
+  },
+  "pruebas_aisladas": {
+    "aprobadas": 9,
+    "salida": [
+      "PASS SHA1 compatible con guia",
+      "PASS correo valido",
+      "PASS correo invalido",
+      "PASS campos validos",
+      "PASS usuario requerido",
+      "PASS usuario con ruta rechazado",
+      "PASS contrasena corta rechazada",
+      "PASS limite correo",
+      "PASS PBKDF2 compatible",
+      "TOTAL 9 PASS"
+    ]
+  },
+  "pruebas_funcionales": [
+    {
+      "case": "Página Login y UTF-8",
+      "result": "PASS",
+      "observed": "Inicio de sesión con tildes y símbolos correctos."
+    },
+    {
+      "case": "Login vacío",
+      "result": "PASS",
+      "observed": "Escribe tu usuario y contraseña."
+    },
+    {
+      "case": "Registro vacío",
+      "result": "PASS",
+      "observed": "El usuario es obligatorio."
+    },
+    {
+      "case": "Confirmación de contraseña",
+      "result": "PASS",
+      "observed": "Las contraseñas no coinciden."
+    },
+    {
+      "case": "Fecha imposible",
+      "result": "PASS",
+      "observed": "Ingresa una fecha válida, no futura, con formato dd/MM/yyyy."
+    },
+    {
+      "case": "Creación de base SQL",
+      "result": "PASS",
+      "observed": "Query executed successfully. BDD_PoliMusic_Lab03, CANCIONES=1."
+    },
+    {
+      "observed": "Cuenta creada correctamente. Ya puedes iniciar sesión.",
+      "result": "PASS",
+      "case": "Registro con SQL"
+    },
+    {
+      "observed": "Usuario o contraseña incorrectos.",
+      "result": "PASS",
+      "case": "Login incorrecto"
+    },
+    {
+      "observed": "Redirección a Song.aspx, usuario isabella.hernandez y Adventure desde SQL.",
+      "result": "PASS",
+      "case": "Login correcto"
+    },
+    {
+      "observed": "Media.ashx?id=1, duración 187.115042 s, currentTime=108.802783, readyState=4, error=null.",
+      "result": "PASS",
+      "case": "Reproducción"
+    },
+    {
+      "observed": "Biblioteca 0 y mensaje sin coincidencias.",
+      "result": "PASS",
+      "case": "Búsqueda sin resultados"
+    },
+    {
+      "observed": "Adven devuelve Adventure, biblioteca 1.",
+      "result": "PASS",
+      "case": "Búsqueda parcial"
+    },
+    {
+      "observed": "Logout dirige a Login; Song sin sesión vuelve a Login con ReturnUrl.",
+      "result": "PASS",
+      "case": "Cierre de sesión"
+    },
+    {
+      "observed": "El nombre de usuario ya está registrado.",
+      "result": "PASS",
+      "case": "Usuario duplicado"
+    },
+    {
+      "observed": "El correo electrónico ya está registrado.",
+      "result": "PASS",
+      "case": "Correo duplicado"
+    }
+  ],
+  "audio": {
+    "archivo": "bensound-adventure.mp3",
+    "duracion_segundos": 187.115042,
+    "avance_observado_segundos": 108.802783,
+    "readyState": 4,
+    "error": null
+  },
+  "evidencia": "Biblioteca_Prueba.png",
+  "no_ejecutadas": [
+    "Subida de foto personalizada",
+    "Paginacion con mas de ocho canciones",
+    "Flujo del perfil administrador"
+  ],
+  "github": {
+    "repositorio": "https://github.com/lalabell-a/AppWebAvIsabellaHernandez",
+    "estado": "PENDIENTE DE PUBLICACION; no se incluye una captura remota inexistente"
+  }
+}
