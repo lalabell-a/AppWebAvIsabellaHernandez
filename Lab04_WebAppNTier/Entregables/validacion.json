@@ -169,9 +169,7 @@
   },
   "total_pruebas_aprobadas": 59,
   "ejecucion": "IIS Express desde Visual Studio en http://localhost:8084/",
-  "pendiente": [
-    "Commit, push y captura remota"
-  ],
+  "pendiente": [],
   "no_ejecutadas": [
     "Registro con foto personalizada",
     "Paginación con más de ocho canciones",
@@ -179,7 +177,12 @@
   ],
   "publicacion": {
     "repositorio": "https://github.com/lalabell-a/AppWebAvIsabellaHernandez",
-    "estado": "PENDIENTE; no se publicó Lab04 en este turno"
+    "estado": "PUBLICADO Y VERIFICADO",
+    "carpeta": "https://github.com/lalabell-a/AppWebAvIsabellaHernandez/tree/main/Lab04_WebAppNTier",
+    "commit_codigo": "8457a5b0a8f3e0f57362b834531c8a6f40ed90fc",
+    "archivos_publicacion_inicial": 71,
+    "cambios_fuera_lab04": 0,
+    "captura": "GitHub_Publicacion.png"
   },
   "evidencia_visual": {
     "canciones": "Canciones_Ejecucion.png",
