@@ -1,0 +1,22 @@
+APROBADA: registro válido
+APROBADA: normalizar usuario
+APROBADA: usuario corto
+APROBADA: usuario largo
+APROBADA: usuario con ruta rechazado
+APROBADA: correo inválido
+APROBADA: límite del correo
+APROBADA: contraseña corta
+APROBADA: contraseña larga
+APROBADA: confirmación diferente
+APROBADA: fecha bisiesta normalizada
+APROBADA: fecha imposible
+APROBADA: fecha anterior a SQL datetime
+APROBADA: fecha futura
+APROBADA: fecha opcional
+APROBADA: SHA1 compatible con la guía
+APROBADA: PBKDF2 con sal aleatoria
+APROBADA: entidad en DLL independiente
+APROBADA: negocio en DLL independiente
+APROBADA: Web referencia BLL y no DAL
+APROBADA: entidades sin dependencia de infraestructura ni presentación
+TOTAL: 21 pruebas aprobadas.

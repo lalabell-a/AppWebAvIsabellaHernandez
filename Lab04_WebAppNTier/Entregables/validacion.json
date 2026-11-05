@@ -1,0 +1,191 @@
+{
+  "proyecto": "Lab04_WebAppNTier",
+  "framework": "v4.8",
+  "compilacion": "APROBADA: cuatro proyectos y cuatro DLL",
+  "aisladas": {
+    "aprobadas": 21,
+    "salida": [
+      "APROBADA: registro válido",
+      "APROBADA: normalizar usuario",
+      "APROBADA: usuario corto",
+      "APROBADA: usuario largo",
+      "APROBADA: usuario con ruta rechazado",
+      "APROBADA: correo inválido",
+      "APROBADA: límite del correo",
+      "APROBADA: contraseña corta",
+      "APROBADA: contraseña larga",
+      "APROBADA: confirmación diferente",
+      "APROBADA: fecha bisiesta normalizada",
+      "APROBADA: fecha imposible",
+      "APROBADA: fecha anterior a SQL datetime",
+      "APROBADA: fecha futura",
+      "APROBADA: fecha opcional",
+      "APROBADA: SHA1 compatible con la guía",
+      "APROBADA: PBKDF2 con sal aleatoria",
+      "APROBADA: entidad en DLL independiente",
+      "APROBADA: negocio en DLL independiente",
+      "APROBADA: Web referencia BLL y no DAL",
+      "APROBADA: entidades sin dependencia de infraestructura ni presentación",
+      "TOTAL: 21 pruebas aprobadas."
+    ]
+  },
+  "sql": {
+    "base": "BDD_PoliMusic_Lab04",
+    "servidor": "127.0.0.1,14333",
+    "aprobadas": 17,
+    "salida": [
+      "APROBADA: BLL y DAL insertan usuario con SQL",
+      "APROBADA: Consulta de usuario por nombre",
+      "APROBADA: Consulta de usuario por correo",
+      "APROBADA: BLL detecta duplicados",
+      "APROBADA: Autenticación válida con SQL",
+      "APROBADA: Autenticación inválida con SQL",
+      "APROBADA: Actualizar usuario conservando contraseña",
+      "APROBADA: Contraseña permanece válida tras actualizar",
+      "APROBADA: Lectura no expone contraseñas",
+      "APROBADA: Canción consultada mediante BLL y DAL",
+      "APROBADA: Filtro SQL parametrizado",
+      "APROBADA: LIKE trata porcentaje como literal",
+      "APROBADA: LIKE trata guion bajo como literal",
+      "APROBADA: BLL rechaza identificador de audio inválido",
+      "APROBADA: Ruta del audio desde SQL",
+      "APROBADA: Eliminar exclusivamente el usuario temporal de prueba",
+      "APROBADA: Confirmar eliminación del usuario temporal",
+      "TOTAL: 17 pruebas SQL aprobadas."
+    ]
+  },
+  "funcionales_http": {
+    "url": "http://localhost:8084/",
+    "base": "BDD_PoliMusic_Lab04",
+    "checks": [
+      {
+        "caso": "Acceso anónimo protegido",
+        "aprobada": true,
+        "observado": "Song redirige a Login"
+      },
+      {
+        "caso": "Login vacío",
+        "aprobada": true,
+        "observado": "Validación de credenciales requeridas"
+      },
+      {
+        "caso": "Credenciales incorrectas",
+        "aprobada": true,
+        "observado": "No se crea sesión"
+      },
+      {
+        "caso": "Confirmación diferente",
+        "aprobada": true,
+        "observado": "Registro rechazado"
+      },
+      {
+        "caso": "Fecha imposible",
+        "aprobada": true,
+        "observado": "Registro rechazado por BLL"
+      },
+      {
+        "caso": "Correo inválido",
+        "aprobada": true,
+        "observado": "Registro rechazado por BLL"
+      },
+      {
+        "caso": "Registro con SQL Server",
+        "aprobada": true,
+        "observado": "Cuenta normal creada desde SignUp"
+      },
+      {
+        "caso": "Usuario duplicado",
+        "aprobada": true,
+        "observado": "Sin nueva cuenta duplicada"
+      },
+      {
+        "caso": "Correo duplicado",
+        "aprobada": true,
+        "observado": "Sin nueva cuenta con el mismo correo"
+      },
+      {
+        "caso": "Login correcto y página Inicio",
+        "aprobada": true,
+        "observado": "Inicio con Site.Master después de autenticar"
+      },
+      {
+        "caso": "GridView desde SQL",
+        "aprobada": true,
+        "observado": "Adventure y usuario en la página Canciones"
+      },
+      {
+        "caso": "Página maestra personalizada",
+        "aprobada": true,
+        "observado": "Marca, identidad y navegación común"
+      },
+      {
+        "caso": "Búsqueda positiva",
+        "aprobada": true,
+        "observado": "Coincidencia recuperada por BLL → DAL"
+      },
+      {
+        "caso": "Búsqueda sin resultados",
+        "aprobada": true,
+        "observado": "GridView presenta estado vacío"
+      },
+      {
+        "caso": "Filtro SQL parametrizado",
+        "aprobada": true,
+        "observado": "El filtro se procesa como texto literal"
+      },
+      {
+        "caso": "Entrega del MP3",
+        "aprobada": true,
+        "observado": "Audio MPEG servido desde Media.ashx"
+      },
+      {
+        "caso": "Rango HTTP del reproductor",
+        "aprobada": true,
+        "observado": "206 Partial Content; 100 bytes recibidos"
+      },
+      {
+        "caso": "Rango inválido",
+        "aprobada": true,
+        "observado": "416 Requested Range Not Satisfiable"
+      },
+      {
+        "caso": "Archivo de audio protegido",
+        "aprobada": true,
+        "observado": "El acceso directo a SongFiles está bloqueado"
+      },
+      {
+        "caso": "Perfil normal restringido",
+        "aprobada": true,
+        "observado": "Un usuario normal vuelve a Canciones"
+      },
+      {
+        "caso": "Logout invalida acceso",
+        "aprobada": true,
+        "observado": "Después de salir se exige iniciar sesión"
+      }
+    ],
+    "aprobadas": 21,
+    "total": 21
+  },
+  "total_pruebas_aprobadas": 59,
+  "ejecucion": "IIS Express desde Visual Studio en http://localhost:8084/",
+  "pendiente": [
+    "Commit, push y captura remota"
+  ],
+  "no_ejecutadas": [
+    "Registro con foto personalizada",
+    "Paginación con más de ocho canciones",
+    "Ingreso de administrador desde navegador"
+  ],
+  "publicacion": {
+    "repositorio": "https://github.com/lalabell-a/AppWebAvIsabellaHernandez",
+    "estado": "PENDIENTE; no se publicó Lab04 en este turno"
+  },
+  "evidencia_visual": {
+    "canciones": "Canciones_Ejecucion.png",
+    "busqueda": "Busqueda_SinResultados.png",
+    "reproduccion": "0:39 / 3:07; botón pause visible",
+    "ajax": "Filtro sin resultados y restauración de la biblioteca"
+  },
+  "pool": "Clr4IntegratedAppPool"
+}

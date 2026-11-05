@@ -1,0 +1,18 @@
+APROBADA: BLL y DAL insertan usuario con SQL
+APROBADA: Consulta de usuario por nombre
+APROBADA: Consulta de usuario por correo
+APROBADA: BLL detecta duplicados
+APROBADA: Autenticación válida con SQL
+APROBADA: Autenticación inválida con SQL
+APROBADA: Actualizar usuario conservando contraseña
+APROBADA: Contraseña permanece válida tras actualizar
+APROBADA: Lectura no expone contraseñas
+APROBADA: Canción consultada mediante BLL y DAL
+APROBADA: Filtro SQL parametrizado
+APROBADA: LIKE trata porcentaje como literal
+APROBADA: LIKE trata guion bajo como literal
+APROBADA: BLL rechaza identificador de audio inválido
+APROBADA: Ruta del audio desde SQL
+APROBADA: Eliminar exclusivamente el usuario temporal de prueba
+APROBADA: Confirmar eliminación del usuario temporal
+TOTAL: 17 pruebas SQL aprobadas.

@@ -1,0 +1,1 @@
+<connectionStrings><add name="BDD_PoliMusicConnectionString" connectionString="Data Source=localhost,14333;Initial Catalog=BDD_PoliMusic_Lab04;User ID=TU_USUARIO;Password=TU_CLAVE;Encrypt=True;TrustServerCertificate=True;Connect Timeout=5" providerName="System.Data.SqlClient" /></connectionStrings>

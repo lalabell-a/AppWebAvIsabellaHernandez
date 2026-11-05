@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+**/.vs/
+**/packages/
+*.user
+*.suo
+*.mdf
+*.ldf
+**/ConnectionStrings.local.config
+**/UserImages/upload-*
+.runtime/
+Verificacion/*.exe
+Verificacion/*.dll
